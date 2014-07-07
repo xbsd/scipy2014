@@ -1,0 +1,48 @@
+
+Series = 1-D NumPy Array
+DataFrame = 2D Table with independent column data types (= multiple series)
+
+Rows have labels in a series (like R names) - But they should be Dict keys !
+
+A data frame is a dict of series
+A data frame also has column names = which is an array of labels
+
+dtype = type of the series in the data frame (= numpy dtype)
+
+Index used to do lookups and also used for joins (say, across 2 series)
+
+Binary Operations are Joins (Will Join according to Index values)
+
+Hierarchical Index = like a tuple (eg., A represents 1,2,3 and B represents as 1,2,3,4) = like an array of tuples. Natural way of GroupBy and reshape operations.
+
+
+You can add dataframes together = but joins according to BOTH rownames and column names. If column name is missing and you try to add to another one that has the column name, it will result in an NA.
+
+But columns can also have "names" i.e., column names can have a parent name essentially.
+Same for Rownames = they can have a parent name (by group).
+
+# Code
+# GroupBy just creates the object, then you have to apply operations on the group (shown below)
+
+df.groupby([key1, key2], axis=0) # 0 = rows, 1 = columns, keys can be functions, column names or arrays.
+# This returns a groupby object. It encapsulates the object. Then you can decide what to do with it. You can iterate(eg., for key in group grouped), aggregate (grouped,agg(f)), transform (grouped.transform(f)), apply functions to the groups grouped.apply()
+
+Agg/Transform = specialized, faster. Agg = produce a single value per group, transform - alter values but not their size. Apply = completely generic, but slower.
+
+Pandas = an in-memory data tool.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
